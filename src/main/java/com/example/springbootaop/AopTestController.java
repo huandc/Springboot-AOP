@@ -22,12 +22,12 @@ public class AopTestController {
 
     @Before("cutOffPoint()")
     public void beforeTest(){
-        logger.info("我在test方法之前执行");
+//        logger.info("我在test方法之前执行");
     }
 
     @After("cutOffPoint()")
     public void doAfter(){
-        logger.info("我是在test之后执行的");
+//        logger.info("我是在test之后执行的");
     }
     ThreadLocal<Long> startTime = new ThreadLocal<>();
     @Around("cutOffPoint()")
@@ -36,7 +36,7 @@ public class AopTestController {
         Object obj;
         try{
             obj = pjp.proceed();
-            logger.info("执行返回值 : " + obj);
+//            logger.info("执行返回值 : " + obj);
             logger.info(pjp.getSignature().getName()+"方法执行耗时: " + (System.currentTimeMillis() - startTime.get()));
         } catch (Throwable throwable) {
             obj=throwable.toString();
